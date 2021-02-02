@@ -26,3 +26,12 @@ class IndexIncorrect(Exception):
         self.message = message
     def __str__(self):
         return self.message
+    
+class MauvaisChiffre(Exception):
+    """
+    Chiffre incorrect
+    """
+    def __init__ (self, message = "Les chiffres vont de 0 a 9"):
+        self.message = message
+    def __str__(self):
+        return self.message
