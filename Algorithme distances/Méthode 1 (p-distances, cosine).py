@@ -5,7 +5,7 @@
 
 # <!-- dom:AUTHOR: Aya Bouzidi at [Sorbonne Université](http://www.sorbonne-universite.fr/), -->
 # <!-- Author: -->  
-# **Aya Bouzidi**, **Amaia Cardiel**, **Camil Grimal**, **Elysé Miadantsoa Rasoloarivony** ( Etudiants en L3 de Mathématiques à [Sorbonne Université](http://www.sorbonne-universite.fr/) ).
+# **Aya Bouzidi**, **Amaia Cardiel**, **Camille Grimal**, **Elysé Miadantsoa Rasoloarivony** ( Etudiants en L3 de Mathématiques à [Sorbonne Université](http://www.sorbonne-universite.fr/) ).
 # 
 # Sous la direction de : **Fréderic Nataf** ( Directeur de recherche au [Laboratoire J.L. Lions](https://www.ljll.math.upmc.fr/), [Sorbonne Université](http://www.sorbonne-universite.fr/) )
 # 
@@ -22,7 +22,7 @@
 # Les instructions suivantes permettent de charger les données de chiffres manuscrits disponibles dans le package mnist-original.mat :
 # 
 
-# In[2]:
+# In[14]:
 
 
 #Code proposé par M.Nataf:Séance 1
@@ -38,7 +38,7 @@ label=label.astype(int) #Les labels sont stockés en flottants, on les convertit
 # <div id="ch:method_1"></div>
 # Regardons un exemple:
 
-# In[3]:
+# In[15]:
 
 
 #Lecture du 2021-ième chiffre de la base de données:
@@ -61,8 +61,9 @@ plt.show()
 # 
 # * **Etape 3:** Pour chaque vecteur de la base de tests, on lui attribue le chiffre dont le centroïde est le plus proche.
 # 
-# * **Etape 4:** Finalement, on déduit une estimation du pourcentage de prédictions correctes sur la base de tests.
+# * **Etape 4:** On déduit une estimation du pourcentage de prédictions correctes sur la base de tests.
 # 
+# * **Etape 5:** Pour chaque chiffre, on déduit une estimation du pourcentage de prédictions correctes.
 # 
 # Plusieurs distances peuvent être utilisées. Dans cette partie, on choisit de travailler avec la distance euclidienne et la distance cosine et de comparer leurs précisions.
 # 
@@ -80,7 +81,7 @@ plt.show()
 # **Etape 1 :** Définir la base d'apprentissage et la base de tests.
 # 
 
-# In[9]:
+# In[16]:
 
 
 Y,y=data,label[0]
@@ -102,7 +103,7 @@ label_test=y_m[n_80:]
 # **Etape 2 :** Dans la base d'apprentissage, on calcule la valeur moyenne des classes de 0 à 9 et on affiche l'image moyenne associée à chaque chiffre.
 # 
 
-# In[10]:
+# In[17]:
 
 
 X,x=data_app,label_app
@@ -119,7 +120,7 @@ for i in range(10):
 # 
 # **Etape 3 :** Pour chaque vecteur de la base de tests, on lui attribue le chiffre dont le centroïde est le plus proche par rapport à la distance euclidienne.
 
-# In[11]:
+# In[18]:
 
 
 #Définition de la fonction qui estime le chiffre d'un vecteur de la base de tests:
@@ -128,7 +129,7 @@ def estim_chiffre_1(v):
     return np.argmin(distances)
 
 
-# In[12]:
+# In[19]:
 
 
 #Labels estimés pour les vecteurs de la base de tests:
@@ -140,9 +141,9 @@ for i in range(k):
 
 # <div id="method_1"></div>
 # 
-# **Etape 4 :** Finalement, on déduit une estimation du pourcentage de prédictions correctes sur la base de tests.
+# **Etape 4 :** On déduit une estimation du pourcentage de prédictions correctes sur la base de tests.
 
-# In[13]:
+# In[20]:
 
 
 np.mean(label_estim_1==label_test)
@@ -152,9 +153,54 @@ np.mean(label_estim_1==label_test)
 # 
 # **Conclusion**: Cet algorithme donne alors une estimation exacte d'un chiffre manuscrit dans 80% des cas.
 
+# <div id="method_1"></div>
+# 
+# **Etape 3 :** Pour chaque chiffre, on déduit une estimation du pourcentage de prédictions correctes.
+
+# In[21]:
+
+
+#On définit la fonction qui donne la liste des chiffres i dans la base de tests: 
+long=len(label_test)
+def estim_1(i):
+    lae=[] #list des labels estimés pour les chiffres i
+    for j in range(long):
+        if label_test[j]==i:
+            lae+=[estim_chiffre_1(data_test[j])]
+    long1=len(lae)
+    laee=np.array(lae)
+    la=np.array([i for j in range(long1)]) 
+    return np.mean(la==laee)
+#Estimation du pourcentage de prédictions correctes pour chaque chiffre: 
+for i in range(10):
+    print("précision pour le chiffre", i ,"est de" , estim_1(i))
+
+
+# In[22]:
+
+
+plt.xlabel(r'Chiffres')
+plt.ylabel(r'Précisions')
+x=[i for i in range(10)]
+y=[estim_1(i) for i in range(10)]
+plt.plot(x, y, marker='o')
+plt.savefig("test.png", dpi=100) # exporte la figure en PNG
+
+
+# <div id="method_1"></div>
+# 
+# **Remarque**: Le chiffre 1 a la plus grande précision, le chiffre 5 a la plus petite précision.
+
 # # 1.1 Distance de Minkowski: p-distance (généralisation)
 
-# In[14]:
+# <div id="method_1"></div>
+# Les deux premières étapes sont les mêmes que la partie 1.
+
+# <div id="method_1"></div>
+# 
+# **Etape 3 :** Pour chaque vecteur de la base de tests, on lui attribue le chiffre dont le centroïde est le plus proche par rapport à la distance p.
+
+# In[23]:
 
 
 #Définition de la fonction qui estime le chiffre d'un vecteur de la base de tests en p-distance:
@@ -163,7 +209,11 @@ def estim_chiffre(v,p):
     return np.argmin(distances)
 
 
-# In[19]:
+# <div id="method_1"></div>
+# 
+# **Etape 4 :** On déduit une estimation du pourcentage de prédictions correctes sur la base de tests pour chaque p-distance.
+
+# In[24]:
 
 
 #Labels estimés pour les vecteurs de la base de tests:
@@ -172,12 +222,55 @@ for p in range(3,11):
     label_estim=np.zeros(k)
     for i in range(k):
         label_estim[i]=estim_chiffre(data_test[i],p)
-    print("précision pour", p ,"est de" ,np.mean(label_estim==label_test))
+    print("précision pour la distance", p ,"est de" ,np.mean(label_estim==label_test))
 
+
+# <div id="method_1"></div>
+# 
+# **Etape 3 :** Pour chaque chiffre et chaque p-distance, on déduit une estimation du pourcentage de prédictions correctes.
+
+# In[25]:
+
+
+#On définit la fonction qui donne la liste des chiffres i dans la base de tests: 
+long=len(label_test)
+def estim(i,p):
+    lae=[] #list des labels estimés pour les chiffres i
+    for j in range(long):
+        if label_test[j]==i:
+            lae+=[estim_chiffre(data_test[j],p)]
+    long1=len(lae)
+    laee=np.array(lae)
+    la=np.array([i for j in range(long1)]) 
+    return np.mean(la==laee)
+#Estimation du pourcentage de prédictions correctes pour chaque chiffre et chaque distance: 
+for p in range(3,11):
+    for i in range(10):
+        print("précision pour le chiffre", i ,"pour la distance", p, "est de" , estim(i,p)) 
+    print("")
+
+
+# In[26]:
+
+
+plt.xlabel(r'Chiffres')
+plt.ylabel(r'Précisions')
+for p in range(3,11):
+    x=[i for i in range(10)]
+    y=[estim(i,p) for i in range(10)]
+    plt.plot(x, y, marker='o', label=(r"distance",p))
+plt.legend()
+plt.show()
+plt.savefig("test.png", dpi=100) # exporte la figure en PNG
+
+
+# <div id="method_1"></div>
+# 
+# **Remarque**: Pour toutes ces distances, le chiffre 0 a la plus grande précision. On remarque que plus on augmente p, plus les précisions de 1, 4 et 7 diminuent. Les autres précisions sont presque constantes. 
 
 # # 1.2 Similarité cosinus
 
-# In[272]:
+# In[27]:
 
 
 #On définit la fonction cosine: 
@@ -192,7 +285,7 @@ def cosine(u,v):
 # 
 # **Etape 3 :** Pour chaque vecteur de la base de tests, on lui attribue le chiffre dont le centroïde est le plus proche par rapport à la distance cosine.
 
-# In[273]:
+# In[28]:
 
 
 #Définition de la fonction qui estime le chiffre d'un vecteur de la base de tests:
@@ -201,7 +294,7 @@ def estim_chiffre_2(v):
     return np.argmax(distances) #On prend le max car plus l'angle est petit, plus le cos est grand
 
 
-# In[274]:
+# In[29]:
 
 
 #Labels estimés pour les vecteurs de la base de tests:
@@ -211,7 +304,7 @@ for i in range(k):
     label_estim_2[i]=estim_chiffre_2(data_test[i])
 
 
-# In[275]:
+# In[30]:
 
 
 np.mean(label_estim_2==label_test)
@@ -220,3 +313,47 @@ np.mean(label_estim_2==label_test)
 # <div id="method_1"></div>
 # 
 # **Conclusion**: Cet algorithme donne alors une estimation exacte d'un chiffre manuscrit dans 81% des cas.
+
+# <div id="method_1"></div>
+# 
+# **Etape 3 :** Pour chaque chiffre, on déduit une estimation du pourcentage de prédictions correctes.
+
+# In[31]:
+
+
+#On définit la fonction qui donne la liste des chiffres i dans la base de tests: 
+long=len(label_test)
+def estim_2(i):
+    lae=[] #list des labels estimés pour les chiffres i
+    for j in range(long):
+        if label_test[j]==i:
+            lae+=[estim_chiffre_2(data_test[j])]
+    long1=len(lae)
+    laee=np.array(lae)
+    la=np.array([i for j in range(long1)]) 
+    return np.mean(la==laee)
+#Estimation du pourcentage de prédictions correctes pour chaque chiffre: 
+for i in range(10):
+    print("précision pour le chiffre", i ,"est de" , estim_2(i))
+
+
+# In[32]:
+
+
+plt.xlabel(r'Chiffres')
+plt.ylabel(r'Précisions')
+x=[i for i in range(10)]
+y=[estim_2(i) for i in range(10)]
+plt.plot(x, y, marker='o')
+plt.savefig("test.png", dpi=100) # exporte la figure en PNG
+
+
+# <div id="method_1"></div>
+# 
+# **Remarque**: Le chiffre 1 a la plus grande précision, le chiffre 5 a la plus petite précision.
+
+# In[ ]:
+
+
+
+
