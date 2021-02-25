@@ -163,6 +163,16 @@ class Donnees():
         else:
             raise MauvaiseBD
 
+    def exporter_mat(self):
+        """
+        enregistre la base de données sous la même forme standart que l'originale;
+        un fichier pour la base de test, un pour la base d'apprentissage
+        """
+        mdic_apprentissage = {"data": np.transpose(self.imagesA), "label": self.categA}
+        scipy.io.savemat("base_apprentissage.mat", mdic_apprentissage)
+        mdic_test = {"data": np.transpose(self.imagesB), "label":self.categB}
+        scipy.io.savemat("base_test.mat", mdic_test)
+        
 
 
 
