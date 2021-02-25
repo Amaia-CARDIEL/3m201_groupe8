@@ -50,12 +50,12 @@ import matplotlib.pyplot as plt
 mat=spi.loadmat("base_apprentissage.mat")
 data_app=np.transpose(mat['data'])
 label_app=np.array(mat['label']) #label: chiffre numérisé
-label_app=label.astype(int) #Les labels sont stockés en flottants, on les convertit en entiers
+label_app=label_app.astype(int) #Les labels sont stockés en flottants, on les convertit en entiers
 
 mat = spi.loadmat("base_test.mat")
 data_test = np.transpose(mat['data'])
 label_test = np.array(mat['label'])
-label_test =label.astype(int)
+label_test =label_test.astype(int)
 
 # <div id="ch:method_1"></div>
 # 
