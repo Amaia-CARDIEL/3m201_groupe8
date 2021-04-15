@@ -23,8 +23,13 @@ def estim_S_overfit(j): #estime l'image data_test_overfit[j]
 # LISTES A STOCKER
 
 estim_scaling=[estim_S(i) for i in range(2000)]
-estim_scaling_overfit=[estim_S_overfit(i) for i in range(2000)]
+#estim_scaling_overfit=[estim_S_overfit(i) for i in range(2000)]
 
-np.savez("estim_scaling", estim_scaling)
-np.savez("estim_scaling_overfit", estim_scaling_overfit)
-
+with open('estim_scaling.txt', 'w') as filehandle:
+    for listitem in estim_scaling:
+        filehandle.write('%s\n' % listitem)
+"""
+with open('estim_scaling_overfit.txt', 'w') as filehandle:
+    for listitem in estim_scaling_overfit:
+        filehandle.write('%s\n' % listitem)
+"""

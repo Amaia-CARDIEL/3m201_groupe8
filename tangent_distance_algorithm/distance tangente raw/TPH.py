@@ -23,8 +23,14 @@ def estim_TPH_overfit(j): #estime l'image data_test_overfit[j]
 # LISTES A STOCKER
 
 estim_TPH=[estim_TPH(i) for i in range(2000)]
-estim_TPH_overfit=[estim_TPH_overfit(i) for i in range(2000)]
+#estim_TPH_overfit=[estim_TPH_overfit(i) for i in range(2000)]
 
-np.savez("estim_TPH", estim_TPH)
-np.savez("estim_TPH_overfit", estim_TPH_overfit)
+with open('estim_TPH.txt', 'w') as filehandle:
+    for listitem in estim_TPH:
+        filehandle.write('%s\n' % listitem)
+"""
+with open('estim_TPH_overfit.txt', 'w') as filehandle:
+    for listitem in estim_TPH_overfit:
+        filehandle.write('%s\n' % listitem)
 
+"""

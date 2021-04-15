@@ -17,7 +17,15 @@ def estim_X_overfit(j): #estime l'image data_test_overfit[j]
 # LISTES A STOCKER
 
 estim_x_trans=[estim_X(i) for i in range(2000)] # pour matrices de confusion
-estim_x_trans_overfit=[estim_X_overfit(i) for i in range(2000)] # pour overfit
+#estim_x_trans_overfit=[estim_X_overfit(i) for i in range(2000)] # pour overfit
 
-numpy.savez("estim_x_trans", estim_x_trans)
-numpy.savez("estim_x_trans_overfit", estim_x_trans_overfit)
+with open('estim_x_trans.txt', 'w') as filehandle:
+    for listitem in estim_x_trans:
+        filehandle.write('%s\n' % listitem)
+
+"""
+with open('estim_x_trans_overfit.txt', 'w') as filehandle:
+    for listitem in estim_x_trans_overfit:
+        filehandle.write('%s\n' % listitem)
+        
+"""

@@ -17,8 +17,13 @@ def estim_Y_overfit(j): #estime l'image data_test_overfit[j]
 # LISTES A STOCKER
 
 estim_y_trans=[estim_Y(i) for i in range(2000)]
-estim_y_trans_overfit=[estim_Y_overfit(i) for i in range(2000)]
+#estim_y_trans_overfit=[estim_Y_overfit(i) for i in range(2000)]
 
-np.savez("estim_y_trans", estim_y_trans)
-np.savez("estim_y_trans_overfit", estim_y_trans_overfit)
-
+with open('estim_y_trans.txt', 'w') as filehandle:
+    for listitem in estim_y_trans:
+        filehandle.write('%s\n' % listitem)
+"""
+with open('estim_y_trans_overfit.txt', 'w') as filehandle:
+    for listitem in estim_y_trans_overfit:
+        filehandle.write('%s\n' % listitem)
+"""

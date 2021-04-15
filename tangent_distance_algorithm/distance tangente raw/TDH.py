@@ -23,7 +23,14 @@ def estim_TDH_overfit(j): #estime l'image data_test_overfit[j]
 # LISTES A STOCKER
 
 estim_TDH=[estim_TDH(i) for i in range(2000)]
-estim_TDH_overfit=[estim_TDH_overfit(i) for i in range(2000)]
+#estim_TDH_overfit=[estim_TDH_overfit(i) for i in range(2000)]
 
-np.savez("estim_TDH", estim_TDH)
-np.savez("estim_TDH_overfit", estim_TDH_overfit)
+with open('estim_TDH.txt', 'w') as filehandle:
+    for listitem in estim_TDH:
+        filehandle.write('%s\n' % listitem)
+"""
+
+with open('estim_TDH_overfit.txt', 'w') as filehandle:
+    for listitem in estim_TDH_overfit:
+        filehandle.write('%s\n' % listitem)
+"""

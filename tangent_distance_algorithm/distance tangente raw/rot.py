@@ -23,8 +23,13 @@ def estim_R_overfit(j): #estime l'image data_test_overfit[j]
 # LISTES A STOCKER
 
 estim_rotation=[estim_R(i) for i in range(2000)]
-estim_rotation_overfit=[estim_R_overfit(i) for i in range(2000)]
+#estim_rotation_overfit=[estim_R_overfit(i) for i in range(2000)]
 
-np.savez("estim_rotation", estim_rotation)
-np.savez("estim_rotation_overfit", estim_rotation_overfit)
-
+with open('estim_rotation.txt', 'w') as filehandle:
+    for listitem in estim_rotation:
+        filehandle.write('%s\n' % listitem)
+"""
+with open('estim_rotation_overfit.txt', 'w') as filehandle:
+    for listitem in estim_rotation_overfit:
+        filehandle.write('%s\n' % listitem)
+"""
