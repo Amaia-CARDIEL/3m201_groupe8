@@ -1,0 +1,11 @@
+
+ Précision pour le chiffre 0 est :  98.46153846153847
+ Précision pour le chiffre 1 est :  99.07407407407408
+ Précision pour le chiffre 2 est :  98.05825242718447
+ Précision pour le chiffre 3 est :  97.83783783783784
+ Précision pour le chiffre 4 est :  97.20930232558139
+ Précision pour le chiffre 5 est :  97.31182795698925
+ Précision pour le chiffre 6 est :  100.0
+ Précision pour le chiffre 7 est :  98.31223628691983
+ Précision pour le chiffre 8 est :  96.61016949152543
+ Précision pour le chiffre 9 est :  98.88268156424581

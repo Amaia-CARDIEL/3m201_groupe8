@@ -7,10 +7,20 @@ import TPH
 import TDH
 import timeit
 
-print(timeit([t_OX.estim_X(i) for i in range(2000)], number = 1))
-print(timeit([t_OY.estim_Y(i) for i in range(2000)], number = 1))
-print(timeit([rot.estim_R(i) for i in range(2000)], number = 1))
-print(timeit([scaling.estim_S(i) for i in range(2000)], number = 1))
-print(timeit([TPH.estim_TPH(i) for i in range(2000)], number = 1))
-print(timeit([TDH.estim_TDH(i) for i in range(2000)], number = 1))
-print(timeit([thick.estim_T(i) for i in range(2000)], number = 1))
+tOx = timeit([t_OX.estim_X(i) for i in range(2000)], number = 1)
+tOy = timeit([t_OY.estim_Y(i) for i in range(2000)], number = 1)
+trot = timeit([rot.estim_R(i) for i in range(2000)], number = 1)
+tscal =timeit([scaling.estim_S(i) for i in range(2000)], number = 1)
+ttph = timeit([TPH.estim_TPH(i) for i in range(2000)], number = 1)
+ttdh = timeit([TDH.estim_TDH(i) for i in range(2000)], number = 1)
+tthick = timeit([thick.estim_T(i) for i in range(2000)], number = 1)
+
+
+with open('timings.txt', 'w') as filehandle:
+    filehandle.write('%s\n Ox:' % tOx)
+    filehandle.write('%s\n Oy:' % tOy)
+    filehandle.write('%s\n rot:' % trot)
+    filehandle.write('%s\n scaling:' % tscal)
+    filehandle.write('%s\n tph:' % ttph)
+    filehandle.write('%s\n tdh:' % ttdh)
+    filehandle.write('%s\n thick:' %tthick)
