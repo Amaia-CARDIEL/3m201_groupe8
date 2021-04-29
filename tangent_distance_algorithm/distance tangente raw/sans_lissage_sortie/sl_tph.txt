@@ -1,0 +1,13 @@
+
+ TPH
+ Précision pour le chiffre 0 est : 38.46153846153847
+ Précision pour le chiffre 1 est : 100.0
+ Précision pour le chiffre 2 est : 6.310679611650485
+ Précision pour le chiffre 3 est : 14.594594594594595
+ Précision pour le chiffre 4 est : 35.81395348837209
+ Précision pour le chiffre 5 est : 27.419354838709676
+ Précision pour le chiffre 6 est : 40.19607843137255
+ Précision pour le chiffre 7 est : 60.337552742616026
+ Précision pour le chiffre 8 est : 7.909604519774012
+ Précision pour le chiffre 9 est : 33.5195530726257
+ Précision totale est : 36.45629097612535

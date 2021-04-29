@@ -1,0 +1,13 @@
+
+ Rot
+ Précision pour le chiffre 0 est : 39.48717948717949
+ Précision pour le chiffre 1 est : 100.0
+ Précision pour le chiffre 2 est : 5.825242718446602
+ Précision pour le chiffre 3 est : 14.594594594594595
+ Précision pour le chiffre 4 est : 35.348837209302324
+ Précision pour le chiffre 5 est : 26.881720430107524
+ Précision pour le chiffre 6 est : 39.21568627450981
+ Précision pour le chiffre 7 est : 59.91561181434599
+ Précision pour le chiffre 8 est : 8.47457627118644
+ Précision pour le chiffre 9 est : 35.19553072625698
+ Précision totale est : 36.493897952592974

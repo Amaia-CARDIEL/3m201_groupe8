@@ -1,0 +1,13 @@
+
+ ToY
+ Précision pour le chiffre 0 est : 38.97435897435898
+ Précision pour le chiffre 1 est : 100.0
+ Précision pour le chiffre 2 est : 5.825242718446602
+ Précision pour le chiffre 3 est : 15.675675675675677
+ Précision pour le chiffre 4 est : 35.348837209302324
+ Précision pour le chiffre 5 est : 26.344086021505376
+ Précision pour le chiffre 6 est : 40.19607843137255
+ Précision pour le chiffre 7 est : 58.64978902953587
+ Précision pour le chiffre 8 est : 7.909604519774012
+ Précision pour le chiffre 9 est : 33.5195530726257
+ Précision totale est : 36.24432256525971

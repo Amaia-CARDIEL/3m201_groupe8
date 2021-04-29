@@ -1,0 +1,13 @@
+
+ TDH
+ Précision pour le chiffre 0 est : 38.46153846153847
+ Précision pour le chiffre 1 est : 100.0
+ Précision pour le chiffre 2 est : 6.310679611650485
+ Précision pour le chiffre 3 est : 16.216216216216218
+ Précision pour le chiffre 4 est : 34.418604651162795
+ Précision pour le chiffre 5 est : 26.881720430107524
+ Précision pour le chiffre 6 est : 40.19607843137255
+ Précision pour le chiffre 7 est : 58.64978902953587
+ Précision pour le chiffre 8 est : 7.909604519774012
+ Précision pour le chiffre 9 est : 32.960893854748605
+ Précision totale est : 36.20051252061065

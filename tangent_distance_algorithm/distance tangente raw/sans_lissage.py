@@ -54,12 +54,12 @@ def precis_X(j):
     estimations=[estim_X(i) for i in digits_j]
     return list(estimations).count(j)/a
 
-précision_totale=[]
-filehandle.write(f'\n ToX')
-for j in range(10):
-    précision_totale+=[precis_X(j)*100]
-    filehandle.write(f'\n Précision pour le chiffre {j} est : {précision_totale[j]}' )
-filehandle.write(f'\n Précision totale est : {sum(précision_totale)/10}' )
+
+def estim_Y(j): #estime l'image data_test[j]
+    A=[np.hstack((np.reshape(-p_y_train[i],(-1,1)),np.reshape(p_y_test[j],(-1,1)))) for i in range(8000)]
+    b=[np.reshape(data_train[i]-data_test[j],(-1,1)) for i in range(8000)]
+    résidus=[np.linalg.lstsq(A[i], b[i], rcond=None)[1][0] for i in range(8000)] 
+    return label_train[résidus.index(min(résidus))]
 
 def precis_Y(j):
     digits_j=[i for i in range(2000) if label_test[i]==j]
@@ -68,12 +68,6 @@ def precis_Y(j):
     return list(estimations).count(j)/a
 
 
-précision_totale=[]
-filehandle.write(f'\n ToY')
-for j in range(10):
-    précision_totale+=[precis_Y(j)*100]
-    filehandle.write(f'\n Précision pour le chiffre {j} est : {précision_totale[j]}' )
-filehandle.write(f'\n Précision totale est : {sum(précision_totale)/10}' )
 
 p_r_train=tuples_y*np.array(p_x_train)-tuples_x*np.array(p_y_train)
 p_r_test=tuples_y*np.array(p_x_test)-tuples_x*np.array(p_y_test)
@@ -92,12 +86,7 @@ def precis_R(j):
     estimations=[estim_R(i) for i in digits_j]
     return list(estimations).count(j)/a
 
-précision_totale=[]
-filehandle.write(f'\n Rot')
-for j in range(10):
-    précision_totale+=[precis_R(j)*100]
-    filehandle.write(f'\n Précision pour le chiffre {j} est : {précision_totale[j]}' )
-filehandle.write(f'\n Précision totale est : {sum(précision_totale)/10}' )
+
 
 p_s_train=tuples_x*np.array(p_x_train)+tuples_y*np.array(p_y_train)
 p_s_test=tuples_x*np.array(p_x_test)+tuples_y*np.array(p_y_test)
@@ -116,12 +105,7 @@ def precis_S(j):
     estimations=[estim_S(i) for i in digits_j]
     return list(estimations).count(j)/a
 
-précision_totale=[]
-filehandle.write(f'\n Scaling')
-for j in range(10):
-    précision_totale+=[precis_S(j)*100]
-    filehandle.write(f'\n Précision pour le chiffre {j} est : {précision_totale[j]}' )
-filehandle.write(f'\n Précision totale est : {sum(précision_totale)/10}' )
+
 
 p_TPH_train=tuples_x*np.array(p_x_train)-tuples_y*np.array(p_y_train)
 p_TPH_test=tuples_x*np.array(p_x_test)-tuples_y*np.array(p_y_test)
@@ -140,12 +124,7 @@ def precis_TPH(j):
     estimations=[estim_TPH(i) for i in digits_j]
     return list(estimations).count(j)/a
 
-précision_totale=[]
-filehandle.write(f'\n TPH')
-for j in range(10):
-    précision_totale+=[precis_TPH(j)*100]
-    filehandle.write(f'\n Précision pour le chiffre {j} est : {précision_totale[j]}' )
-filehandle.write(f'\n Précision totale est : {sum(précision_totale)/10}' )
+
 
 p_TDH_train=tuples_y*np.array(p_x_train)+tuples_x*np.array(p_y_train)
 p_TDH_test=tuples_y*np.array(p_x_test)+tuples_x*np.array(p_y_test)
@@ -164,13 +143,6 @@ def precis_TDH(j):
     estimations=[estim_TDH(i) for i in digits_j]
     return list(estimations).count(j)/a
 
-précision_totale=[]
-filehandle.write(f'\n TDH')
-for j in range(10):
-    précision_totale+=[precis_TDH(j)*100]
-    filehandle.write(f'\n Précision pour le chiffre {j} est : {précision_totale[j]}' )
-filehandle.write(f'\n Précision totale est : {sum(précision_totale)/10}' )
-
 p_T_train=np.array(p_x_train)**2+np.array(p_y_train)**2
 p_T_test=np.array(p_x_test)**2+np.array(p_y_test)**2
 
@@ -186,9 +158,3 @@ def precis_T(j):
     estimations=[estim_T(i) for i in digits_j]
     return list(estimations).count(j)/a
 
-précision_totale=[]
-filehandle.write(f'\n Translation')
-for j in range(10):
-    précision_totale+=[precis_T(j)*100]
-    filehandle.write(f'\n Précision pour le chiffre {j} est : {précision_totale[j]}' )
-filehandle.write(f'\n Précision totale est : {sum(précision_totale)/10}' )

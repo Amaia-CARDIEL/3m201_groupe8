@@ -11,4 +11,3 @@
  Précision pour le chiffre 8 est : 7.909604519774012
  Précision pour le chiffre 9 est : 34.63687150837989
  Précision totale est : 36.503172706164165
- ToY

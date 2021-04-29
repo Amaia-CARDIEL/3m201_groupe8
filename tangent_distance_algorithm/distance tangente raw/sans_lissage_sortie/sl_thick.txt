@@ -1,0 +1,13 @@
+
+ Translation
+ Précision pour le chiffre 0 est : 75.38461538461539
+ Précision pour le chiffre 1 est : 100.0
+ Précision pour le chiffre 2 est : 17.475728155339805
+ Précision pour le chiffre 3 est : 39.45945945945946
+ Précision pour le chiffre 4 est : 58.6046511627907
+ Précision pour le chiffre 5 est : 49.46236559139785
+ Précision pour le chiffre 6 est : 49.01960784313725
+ Précision pour le chiffre 7 est : 74.26160337552743
+ Précision pour le chiffre 8 est : 5.084745762711865
+ Précision pour le chiffre 9 est : 43.575418994413404
+ Précision totale est : 51.232819572939306

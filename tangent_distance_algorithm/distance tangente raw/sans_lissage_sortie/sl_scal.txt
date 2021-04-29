@@ -1,0 +1,13 @@
+
+ Scaling
+ Précision pour le chiffre 0 est : 40.0
+ Précision pour le chiffre 1 est : 100.0
+ Précision pour le chiffre 2 est : 6.310679611650485
+ Précision pour le chiffre 3 est : 15.675675675675677
+ Précision pour le chiffre 4 est : 34.418604651162795
+ Précision pour le chiffre 5 est : 26.881720430107524
+ Précision pour le chiffre 6 est : 39.21568627450981
+ Précision pour le chiffre 7 est : 59.07172995780591
+ Précision pour le chiffre 8 est : 6.779661016949152
+ Précision pour le chiffre 9 est : 39.10614525139665
+ Précision totale est : 36.745990286925796
