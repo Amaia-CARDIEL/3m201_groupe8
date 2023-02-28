@@ -1,7 +1,7 @@
 ### Basic MNIST classification
 
 This repository contains the undergraduate research project, my team and I did to classify MNIST images in Spring 2021. 
-The involved team members were: Aya Bouzidi, Camille Grimal, Elysé Rasoloarivony and myself. 
+The involved team members were: Aya Bouzidi, Camille Grimal, Elysé Rasoloarivony and Amaia Cardiel (myself). 
 
 We explored three Machine Learning algorithms to perform MNIST classification:
 
