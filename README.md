@@ -1,12 +1,23 @@
-En bref:
+### Basic MNIST classification
 
-base.py regroupe l'ensemble des structures qui nous seront utiles quel que soit le projet
+This repository contains the undergraduate project, my team and I did to classify MNIST images (Spring 2021). 
+The involved team members were: Aya Bouzidi, Camille Grimal, Elysé Rasoloarivony and myself. 
 
-exceptions.py regroupe les différentes erreurs qui peuvent arriver
+We explored three Machine Learning algorithms to perform MNIST classification:
 
-mnist-original.mat est simplement la base de données qu'on nous a fourni
+  * Naive classification via euclidian distance to class centroids
+  * Classificationvia Singular Value Decomposition (SVD)
+  * Classification via Tangent Distance
 
-base_apprentissage.mat et base_tests.mat sont des bases de données au même format que mnist-original.mat et peuvent donc être utilisées exactement de la même manière. 
-Leur titre est explicite quand au contenu, et la répartition est de 80% apprentissage, 20% test.
+This last method was implemented, following the paper [Transformation invariance in pattern recognition - tangent distance and tangent propagation](https://link.springer.com/chapter/10.1007/978-3-642-35289-8_17).
 
-N'oubliez pas de mettre les bases de données dans les nouveaux dossiers que vous créez !
+#### A few words on some of the files
+
+*base.py* gathers the basic structures that we would need for any project
+
+*exceptions.py* gathers the various errors that might arise
+
+*mnist-original.mat* is the original dataset that was provided to us by our academic supervisor
+
+*base_apprentissage.mat* and *base_tests.mat* are datasets in the same format as the file *mnist-original.mat* and can thus be used in the same way. Their title are explicit regarding their content: *base_apprentissage.mat* is meant for training (80% of the original dataset) and *base_tests.mat* for testing (20% of the original dataset). 
+
