@@ -9,7 +9,7 @@ We explored three Machine Learning algorithms to perform MNIST classification:
   * Classificationvia Singular Value Decomposition (SVD)
   * Classification via Tangent Distance
 
-This last method was implemented, following the paper [Transformation invariance in pattern recognition - tangent distance and tangent propagation](https://link.springer.com/chapter/10.1007/978-3-642-35289-8_17).
+This last method was implemented, following the paper [Simard, P.Y., LeCun, Y.A., Denker, J.S., Victorri, B. (2012). Transformation Invariance in Pattern Recognition – Tangent Distance and Tangent Propagation. In: Montavon, G., Orr, G.B., Müller, KR. (eds) Neural Networks: Tricks of the Trade. Lecture Notes in Computer Science, vol 7700. Springer, Berlin, Heidelberg](https://link.springer.com/chapter/10.1007/978-3-642-35289-8_17).
 
 ### A few words on some of the files
 
